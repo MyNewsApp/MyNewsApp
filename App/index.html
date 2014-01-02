@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html data-ng-app="sportsApp">
+	<head>
+		<title>Sports</title>
+		 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+		 <link rel="stylesheet" href="Sports/css/sportsfeed.css" />
+	</head>
+	<body data-ng-controller="StreamController">
+		<form class="form-search"> 
+			<h4>Please Select the streams that you would like to see:</h4>
+			<div class="input-append">
+				<input type="search" class="search-query" data-ng-model="search" />
+				<button type="submit" class="btn">Search</button>		
+			</div><br><br>
+			<div data-ng-animate="'animate'" data-ng-repeat="streamName in streams | filter: search">
+				<input type="checkbox" name="configgroup" class="chkb" value="{{ streamName }}"> <label for="{{ streamName }}Ckb" class="lbl">{{ streamName }}</label><br>
+			</div>
+			<div data-ng-view=""></div>
+			<script src="Common/js/jquery-1.10.1.js"></script>
+			<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+			<script src='Common/js/jquery.jgfeed.js'></script>
+			<script src="Common/js/angular.js"></script>
+			<script src="Common/js/angular-route.js"></script>
+			<script src="Common/js/angular-animate.js"></script>
+			<script src="Sports/js/sportsfeed.js"></script>
+		</form>
+	</body>
+</html>
